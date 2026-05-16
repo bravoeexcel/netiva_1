@@ -27,26 +27,34 @@
       --border-radius-md: 10px;
       --border-radius-lg: 16px;
     }
-    body { font-family: var(--font-sans); color: var(--color-text-primary); font-size: 14px; background: var(--color-background-primary); }
+    body { font-family: var(--font-sans); color: var(--color-text-primary); font-size: 14px; background: var(--color-background-primary); margin: 0; padding: 0; }
     input, select, textarea, button { font-family: var(--font-sans); font-size: 13px; outline: none; }
     input, select, textarea { border: 1px solid var(--color-border-secondary); border-radius: var(--border-radius-md); padding: 8px 12px; background: var(--color-background-primary); color: var(--color-text-primary); transition: border-color .15s; }
     input:focus, select:focus, textarea:focus { border-color: var(--color-accent); box-shadow: 0 0 0 3px rgba(49,64,33,.08); }
 
-    .nav { display: flex; align-items: center; justify-content: space-between; padding: 1rem 2rem; border-bottom: 1px solid var(--color-border-tertiary); background: rgba(250,250,248,.95); backdrop-filter: blur(12px); gap: 8px; position: sticky; top: 0; z-index: 50; }
-    .logo { font-family: var(--font-display); font-size: 22px; font-weight: 500; cursor: pointer; letter-spacing: -.3px; flex-shrink: 0; color: var(--color-accent); }
+    .nav { display: flex; align-items: center; justify-content: space-between; padding: 1.1rem 2rem; border-bottom: none; background: transparent; gap: 8px; position: absolute; top: 0; left: 0; right: 0; z-index: 50; }
+    .logo { font-family: var(--font-display); font-size: 22px; font-weight: 500; cursor: pointer; letter-spacing: -.3px; flex-shrink: 0; color: #fff; }
     .nav-c { display: flex; gap: 1.5rem; }
-    .nav-c a { font-size: 13px; color: var(--color-text-secondary); cursor: pointer; text-decoration: none; letter-spacing: .01em; }
-    .nav-c a:hover { color: var(--color-text-primary); }
+    .nav-c a { font-size: 13px; color: rgba(255,255,255,.75); cursor: pointer; text-decoration: none; letter-spacing: .01em; }
+    .nav-c a:hover { color: #fff; }
     .nav-r { display: flex; align-items: center; gap: 8px; }
-    .rate-chip { display: inline-flex; align-items: center; gap: 5px; font-size: 11px; background: var(--color-accent-light); border: 1px solid #b8d4a8; border-radius: 999px; padding: 3px 10px; color: var(--color-accent); font-weight: 500; }
+    .rate-chip { display: inline-flex; align-items: center; gap: 5px; font-size: 11px; background: rgba(255,255,255,.15); border: 1px solid rgba(255,255,255,.25); border-radius: 999px; padding: 3px 10px; color: rgba(255,255,255,.9); font-weight: 500; }
     .rate-dot { width: 6px; height: 6px; border-radius: 50%; background: #FAC775; flex-shrink: 0; }
-    .rate-dot.live { background: #4a6030; }
+    .rate-dot.live { background: #a8d878; }
     @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.3} }
     .rate-dot.loading { animation: pulse 1s infinite; }
+
+    /* Hero section wraps nav + hero image so nav floats over it */
+    .hero-section { position: relative; }
+    .hero-section .nav { position: absolute; top: 0; left: 0; right: 0; z-index: 50; background: transparent; }
+    /* After hero, a sentinel makes nav sticky */
+    .nav-sticky-sentinel { position: sticky; top: 0; z-index: 49; height: 0; }
+    .nav-clone { display: flex; align-items: center; justify-content: space-between; padding: 1.1rem 2rem; background: #314021; gap: 8px; position: sticky; top: 0; z-index: 49; box-shadow: 0 2px 16px rgba(0,0,0,.15); transform: translateY(-100%); transition: transform .25s ease; }
+    .nav-clone.visible { transform: translateY(0); }
     /* Language dropdown */
     .lang-dd { position: relative; }
-    .lang-dd-btn { display: inline-flex; align-items: center; gap: 5px; font-size: 13px; cursor: pointer; background: transparent; border: none; color: var(--color-text-secondary); padding: 4px 2px; }
-    .lang-dd-btn:hover { color: var(--color-text-primary); }
+    .lang-dd-btn { display: inline-flex; align-items: center; gap: 5px; font-size: 13px; cursor: pointer; background: transparent; border: none; color: rgba(255,255,255,.8); padding: 4px 2px; }
+    .lang-dd-btn:hover { color: #fff; }
     .lang-dd-btn svg { opacity: .5; }
     .lang-dd-menu { position: absolute; right: 0; top: calc(100% + 6px); background: var(--color-background-primary); border: .5px solid var(--color-border-secondary); border-radius: var(--border-radius-md); box-shadow: 0 4px 16px rgba(0,0,0,.08); min-width: 110px; overflow: hidden; display: none; z-index: 200; }
     .lang-dd-menu.open { display: block; }
@@ -54,8 +62,8 @@
     .lang-dd-item:hover { background: var(--color-background-secondary); color: var(--color-text-primary); }
     .lang-dd-item.on { color: var(--color-text-primary); font-weight: 500; }
     /* Nav link-style buttons (no border) */
-    .nav-link-btn { display: inline-flex; align-items: center; gap: 5px; font-size: 13px; cursor: pointer; background: transparent; border: none; color: var(--color-text-secondary); padding: 4px 2px; }
-    .nav-link-btn:hover { color: var(--color-text-primary); }
+    .nav-link-btn { display: inline-flex; align-items: center; gap: 5px; font-size: 13px; cursor: pointer; background: transparent; border: none; color: rgba(255,255,255,.8); padding: 4px 2px; }
+    .nav-link-btn:hover { color: #fff; }
     /* Legacy lang-toggle hidden */
     .lang-toggle { display: none; }
 
@@ -67,17 +75,17 @@
     .btn.sm { font-size: 12px; padding: 4px 12px; }
     .btn.d { border-color: #F09595; color: #A32D2D; }
     .btn.d:hover { background: #FCEBEB; }
-    .ava { width: 32px; height: 32px; border-radius: 50%; background: var(--color-accent-light); color: var(--color-accent); display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 600; cursor: pointer; border: 1px solid #b8d4a8; }
+    .ava { width: 32px; height: 32px; border-radius: 50%; background: rgba(255,255,255,.2); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 600; cursor: pointer; border: 1px solid rgba(255,255,255,.35); }
     .bdg { border-radius: 999px; font-size: 11px; font-weight: 500; padding: 2px 9px; display: inline-block; }
     .bdg.g { background: #e2edd8; color: #314021; }
     .bdg.b { background: #E6F1FB; color: #185FA5; }
     .bdg.a { background: #FEF3E2; color: #92540c; }
 
-    .hero { position: relative; min-height: 520px; display: flex; align-items: center; justify-content: center; text-align: center; background: linear-gradient(135deg, #1e2a14 0%, #314021 60%, #3d5028 100%); overflow: hidden; }
+    .hero { position: relative; min-height: 620px; display: flex; align-items: center; justify-content: center; text-align: center; background: linear-gradient(135deg, #1e2a14 0%, #314021 60%, #3d5028 100%); overflow: hidden; margin-top: 0; }
     .hero-bg { position: absolute; inset: 0; object-fit: cover; width: 100%; height: 100%; }
     .hero-overlay { position: absolute; inset: 0; background: rgba(0,0,0,.45); }
-    .hero-content { position: relative; z-index: 2; padding: 5rem 2rem; max-width: 680px; margin: 0 auto; }
-    .hero.no-img .hero-overlay { display: none; }
+    .hero-content { position: relative; z-index: 2; padding: 8rem 2rem 5rem; max-width: 680px; margin: 0 auto; }
+    .hero.no-img .hero-overlay { background: rgba(0,0,0,.15); display: block; }
     .hero.no-img .hero-content h1 { color: #fff; }
     .hero.no-img .hero-content p { color: rgba(255,255,255,.8); }
     .hero h1 { font-family: var(--font-display); font-size: 52px; font-weight: 400; margin-bottom: 16px; letter-spacing: -.5px; color: #fff; line-height: 1.1; }
@@ -274,9 +282,9 @@
       display: none;
       align-items: center; justify-content: center;
       width: 36px; height: 36px;
-      background: transparent; border: .5px solid var(--color-border-secondary);
+      background: rgba(255,255,255,.15); border: 1px solid rgba(255,255,255,.3);
       border-radius: var(--border-radius-md); cursor: pointer; flex-shrink: 0;
-      color: var(--color-text-primary);
+      color: #fff;
     }
     .mob-menu-btn:hover { background: var(--color-background-secondary); }
 
@@ -359,11 +367,11 @@
     @media (max-width: 600px) {
       .mob-menu-btn { display: flex; }
       .nav-desktop-links { display: none !important; }
-      .nav { position: relative; }
+      .nav { position: absolute; }
       /* Shrink rate chip on mobile — hide the timestamp part */
       .rate-chip { font-size: 10px; padding: 3px 7px; max-width: 120px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
       /* Smaller hero on mobile */
-      .hero { min-height: 360px; }
+      .hero { min-height: 440px; }
       .hero h1 { font-size: 32px; }
       .hero p { font-size: 15px; }
       /* Product grid: 2 columns on mobile */
@@ -476,8 +484,8 @@
     <!-- Desktop-only: nav links + auth buttons -->
     <div class="nav-desktop-links" style="display:flex;align-items:center;gap:1.25rem">
       <a class="nav-c" style="display:flex;gap:1.25rem;align-items:center">
-        <span onclick="go('shop')" id="nav-shop" style="font-size:13px;color:var(--color-text-secondary);cursor:pointer">Shop</span>
-        <span onclick="go('admin-login')" id="nav-admin" style="font-size:13px;color:var(--color-text-secondary);cursor:pointer">Admin</span>
+        <span onclick="go('shop')" id="nav-shop" style="font-size:13px;color:rgba(255,255,255,.8);cursor:pointer">Shop</span>
+        <span onclick="go('admin-login')" id="nav-admin" style="font-size:13px;color:rgba(255,255,255,.8);cursor:pointer">Admin</span>
       </a>
       <div class="nav-r" id="nr"></div>
     </div>
@@ -507,6 +515,10 @@
     <div id="mob-nav-auth"><!-- filled by rNav() --></div>
   </div>
 </nav>
+
+<div id="sticky-nav" style="display:none;position:fixed;top:0;left:0;right:0;z-index:48;background:#314021;box-shadow:0 2px 20px rgba(0,0,0,.18);padding:1.1rem 2rem;align-items:center;justify-content:space-between;gap:8px">
+  <span class="logo" style="color:#fff;font-family:'Playfair Display',Georgia,serif;font-size:22px;font-weight:500;cursor:pointer" onclick="go('shop')">Netiva</span>
+</div>
 
 <div id="cart-overlay" class="cart-overlay" style="display:none" onclick="closeCart()"></div>
 <div id="cart-drawer" class="cart-drawer" style="display:none"></div>
@@ -1997,5 +2009,31 @@ function saveFeeRate(){const inp=document.getElementById('fee-input'),msg=docume
 
 // Boot is handled by _boot() above — triggered once Firebase is ready
 </script>
+
+<script>
+(function(){
+  // Show a solid green sticky nav once the hero scrolls out of view
+  const stickyNav = document.getElementById('sticky-nav');
+  function updateStickyNav(){
+    const root = document.getElementById('root');
+    const hero = root ? root.querySelector('.hero') : null;
+    if(!hero || !stickyNav) return;
+    const rect = hero.getBoundingClientRect();
+    const navEl = document.querySelector('.nav');
+    if(rect.bottom <= 0){
+      stickyNav.style.display = 'flex';
+      if(navEl) navEl.style.opacity = '0';
+    } else {
+      stickyNav.style.display = 'none';
+      if(navEl) navEl.style.opacity = '1';
+    }
+  }
+  window.addEventListener('scroll', updateStickyNav, {passive:true});
+  // Re-check on render
+  const origRender = window.render;
+  window.addEventListener('load', updateStickyNav);
+})();
+</script>
+
 </body>
 </html>
