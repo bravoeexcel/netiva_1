@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>E.Excel Netiva — Excellence In Action</title>
+  <title>Netiva — Excellence In Action</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
@@ -430,7 +430,7 @@
 <!-- Language selection overlay (shown on first visit) -->
 <div id="lang-pick-overlay" class="lang-pick-overlay" style="display:none">
   <div class="lang-pick-card">
-    <div class="lang-pick-logo">E.Excel Netiva</div>
+    <div class="lang-pick-logo">Netiva</div>
     <div class="lang-pick-tagline">Excellence In Action · 追求卓越</div>
     <div class="lang-pick-label">Choose your language · 选择语言 · 選擇語言</div>
     <div class="lang-pick-options">
@@ -460,7 +460,7 @@
 </div>
 
 <nav class="nav">
-  <span class="logo" onclick="go('shop')">E.Excel Netiva</span>
+  <span class="logo" onclick="go('shop')">Netiva</span>
 
   <!-- Always-visible right side: rate chip, language, then desktop-only links + hamburger -->
   <div style="display:flex;align-items:center;gap:10px;margin-left:auto">
@@ -517,7 +517,7 @@
 </nav>
 
 <div id="sticky-nav" style="display:none;position:fixed;top:0;left:0;right:0;z-index:48;background:#314021;box-shadow:0 2px 20px rgba(0,0,0,.18);padding:1.1rem 2rem;align-items:center;justify-content:space-between;gap:8px">
-  <span class="logo" style="color:#fff;font-family:'Playfair Display',Georgia,serif;font-size:22px;font-weight:500;cursor:pointer" onclick="go('shop')">E.Excel Netiva</span>
+  <span class="logo" style="color:#fff;font-family:'Playfair Display',Georgia,serif;font-size:22px;font-weight:500;cursor:pointer" onclick="go('shop')">Netiva</span>
 </div>
 
 <div id="cart-overlay" class="cart-overlay" style="display:none" onclick="closeCart()"></div>
@@ -546,7 +546,7 @@ const T={
     password:'Password',confirmPassword:'Confirm Password',createAccount:'Create Account',
     alreadyHave:'Already have an account?',signInHere:'Sign in here',
     noAccount:"Don't have an account?",registerHere:'Register here',
-    welcomeBack:'Welcome back to E.Excel Netiva',signInBtn:'Sign In',
+    welcomeBack:'Welcome back to Netiva',signInBtn:'Sign In',
     refBy:'Referred by',joined:'Member since',orders:'Orders',
     saveChanges:'Save Changes',backToShop:'← Back to shop',
     orderSummary:'Order Summary',paymentMethod:'Select Payment Method',
@@ -620,7 +620,7 @@ const T={
     password:'密码',confirmPassword:'确认密码',createAccount:'创建账户',
     alreadyHave:'已有账户？',signInHere:'立即登录',
     noAccount:'还没有账户？',registerHere:'持推荐码注册',
-    welcomeBack:'欢迎回到 E.Excel Netiva',signInBtn:'登录',
+    welcomeBack:'欢迎回到 Netiva',signInBtn:'登录',
     refBy:'推荐人',joined:'注册时间',orders:'订单数量',
     saveChanges:'保存更改',backToShop:'← 返回商店',
     orderSummary:'确认订单',paymentMethod:'选择付款方式',
@@ -694,7 +694,7 @@ const T={
     password:'密碼',confirmPassword:'確認密碼',createAccount:'建立帳戶',
     alreadyHave:'已有帳戶？',signInHere:'立即登入',
     noAccount:'還沒有帳戶？',registerHere:'持推薦碼註冊',
-    welcomeBack:'歡迎回到 E.Excel Netiva',signInBtn:'登入',
+    welcomeBack:'歡迎回到 Netiva',signInBtn:'登入',
     refBy:'推薦人',joined:'註冊時間',orders:'訂單數量',
     saveChanges:'儲存變更',backToShop:'← 返回商店',
     orderSummary:'確認訂單',paymentMethod:'選擇付款方式',
@@ -1727,7 +1727,7 @@ function rReg(r){
 }
 function ckRC(){const v=document.getElementById('rc').value.trim().toUpperCase(),h=document.getElementById('rch'),f=document.getElementById('rf');if(!v){h.textContent='';f.style.opacity='.4';f.style.pointerEvents='none';return;}const ref=refByCode(v);if(ref){h.style.color='#185FA5';h.innerHTML=`<svg width="12" height="12" viewBox="0 0 12 12" fill="none" style="vertical-align:middle;margin-right:3px"><path d="M2 6l3 3 5-5" stroke="#185FA5" stroke-width="1.5" stroke-linecap="round"/></svg>${t('validCode')} <strong>${ref.name}</strong>`;f.style.opacity='1';f.style.pointerEvents='auto';}else{h.style.color='#A32D2D';h.innerHTML=`<svg width="12" height="12" viewBox="0 0 12 12" fill="none" style="vertical-align:middle;margin-right:3px"><path d="M3 3l6 6M9 3l-6 6" stroke="#A32D2D" stroke-width="1.5" stroke-linecap="round"/></svg>${t('invalidCode')}`;f.style.opacity='.4';f.style.pointerEvents='none';}}
 function ckS(pw){const b=document.getElementById('sb');if(!b)return;let s=0;if(pw.length>=8)s++;if(/[A-Z]/.test(pw))s++;if(/[0-9]/.test(pw))s++;if(/[^A-Za-z0-9]/.test(pw))s++;b.style.width=['0%','25%','50%','75%','100%'][s];b.style.background=['#E24B4A','#E24B4A','#EF9F27','#7a9c5a','#314021'][s];}
-function doReg(){const code=document.getElementById('rc').value.trim().toUpperCase(),fn=document.getElementById('rfn').value.trim(),ln=document.getElementById('rln').value.trim(),em=document.getElementById('re').value.trim().toLowerCase(),pw=document.getElementById('rp').value,pw2=document.getElementById('rp2').value,msg=document.getElementById('rm');const ref=refByCode(code);if(!ref){msg.innerHTML=`<div class="m e">${t('errorInvalidCode')}</div>`;return;}if(!fn||!ln||!em||!pw||!pw2){msg.innerHTML=`<div class="m e">${t('errorFillAll')}</div>`;return;}if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)){msg.innerHTML=`<div class="m e">${t('errorEmail')}</div>`;return;}if(pw.length<8){msg.innerHTML=`<div class="m e">${t('errorPassLen')}</div>`;return;}if(pw!==pw2){msg.innerHTML=`<div class="m e">${t('errorPassMatch')}</div>`;return;}if(db.users.find(u=>u.email===em)){msg.innerHTML=`<div class="m e">${t('errorEmailTaken')}</div>`;return;}const u={id:'u'+Date.now(),name:fn+' '+ln,email:em,pass:pw,referrerId:ref.id,referrerName:ref.name,joined:new Date().toLocaleDateString(),orders:0};db.users.push(u);db.cur=u;sv(true);msg.innerHTML=`<div class="m s">${lang==='en'?'Account created! Welcome to E.Excel Netiva.':(lang==='zht'?'帳戶建立成功！歡迎加入 E.Excel Netiva。':'账户创建成功！欢迎加入 E.Excel Netiva。')}</div>`;setTimeout(()=>go('shop'),900);}
+function doReg(){const code=document.getElementById('rc').value.trim().toUpperCase(),fn=document.getElementById('rfn').value.trim(),ln=document.getElementById('rln').value.trim(),em=document.getElementById('re').value.trim().toLowerCase(),pw=document.getElementById('rp').value,pw2=document.getElementById('rp2').value,msg=document.getElementById('rm');const ref=refByCode(code);if(!ref){msg.innerHTML=`<div class="m e">${t('errorInvalidCode')}</div>`;return;}if(!fn||!ln||!em||!pw||!pw2){msg.innerHTML=`<div class="m e">${t('errorFillAll')}</div>`;return;}if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)){msg.innerHTML=`<div class="m e">${t('errorEmail')}</div>`;return;}if(pw.length<8){msg.innerHTML=`<div class="m e">${t('errorPassLen')}</div>`;return;}if(pw!==pw2){msg.innerHTML=`<div class="m e">${t('errorPassMatch')}</div>`;return;}if(db.users.find(u=>u.email===em)){msg.innerHTML=`<div class="m e">${t('errorEmailTaken')}</div>`;return;}const u={id:'u'+Date.now(),name:fn+' '+ln,email:em,pass:pw,referrerId:ref.id,referrerName:ref.name,joined:new Date().toLocaleDateString(),orders:0};db.users.push(u);db.cur=u;sv(true);msg.innerHTML=`<div class="m s">${lang==='en'?'Account created! Welcome to Netiva.':(lang==='zht'?'帳戶建立成功！歡迎加入 Netiva。':'账户创建成功！欢迎加入 Netiva。')}</div>`;setTimeout(()=>go('shop'),900);}
 function rLogin(r){r.innerHTML=`<div class="ov"><div class="mod"><h2>${t('signIn')}</h2><div class="msub">${t('welcomeBack')}</div><div id="lm"></div><div class="fl"><label>${t('email')}</label><input type="email" id="le"></div><div class="fl"><label>${t('password')}</label><input type="password" id="lp" onkeydown="if(event.key==='Enter')doLogin()"></div><button class="btn p" style="width:100%;justify-content:center;padding:10px" onclick="doLogin()">${t('signInBtn')}</button><div class="sw">${t('noAccount')} <a onclick="go('reg')">${t('registerHere')}</a></div></div></div>`;}
 function doLogin(){const em=document.getElementById('le').value.trim().toLowerCase(),pw=document.getElementById('lp').value,msg=document.getElementById('lm');if(!em||!pw){msg.innerHTML=`<div class="m e">${t('errorFillAll')}</div>`;return;}const u=db.users.find(u=>u.email===em&&u.pass===pw);if(!u){msg.innerHTML=`<div class="m e">${lang==='en'?'Incorrect email or password.':(lang==='zht'?'電子郵件或密碼不正確。':'邮箱或密码不正确。')}</div>`;return;}db.cur=u;sv();msg.innerHTML=`<div class="m s">${lang==='en'?'Welcome back, '+u.name.split(' ')[0]+'!':(lang==='zht'?'歡迎回來，'+u.name.split(' ')[0]+'！':'欢迎回来，'+u.name.split(' ')[0]+'！')}</div>`;setTimeout(()=>go('shop'),700);}
 function rAcc(r){if(!db.cur){go('login');return;}const u=db.cur;r.innerHTML=`<div class="pg"><div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem"><div style="display:flex;align-items:center;gap:12px"><div class="ava" style="width:44px;height:44px;font-size:15px">${ini(u.name)}</div><div><div style="font-size:16px;font-weight:500">${u.name}</div><div style="font-size:12px;color:var(--color-text-secondary)">${u.email}</div></div></div><button class="btn sm d" onclick="doLO()">${t('logout')}</button></div><div style="background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:10px 14px;font-size:13px;margin-bottom:1.25rem;display:flex;align-items:center;gap:8px"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="5" r="2.5" stroke="currentColor" stroke-width="1.2"/><path d="M2 12c0-2.8 2.2-5 5-5s5 2.2 5 5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>${t('refBy')}: <strong>${u.referrerName}</strong></div><div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:1.25rem"><div class="sc"><div class="sl">${t('joined')}</div><div style="font-size:13px;font-weight:500;margin-top:4px">${u.joined}</div></div><div class="sc"><div class="sl">${t('orders')}</div><div class="sv">${u.orders||0}</div></div></div><div class="dv"></div><div class="fl"><label>${lang==='en'?'Full Name':(lang==='zht'?'姓名':'姓名')}</label><input type="text" id="en" value="${u.name}" style="width:100%"></div><div class="fl"><label>${t('email')}</label><input type="email" id="ee" value="${u.email}" style="width:100%"></div><div id="em"></div><button class="btn p" style="width:100%;justify-content:center;padding:10px" onclick="saveA()">${t('saveChanges')}</button><div style="margin-top:10px;text-align:center"><a style="font-size:12px;color:var(--color-text-secondary);cursor:pointer;text-decoration:underline" onclick="go('shop')">${t('backToShop')}</a></div></div>`;}
